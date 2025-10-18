@@ -21,18 +21,19 @@ export interface IStorage {
   // User operations - Required for Replit Auth
   getUser(id: string): Promise<User | undefined>;
   upsertUser(user: UpsertUser): Promise<User>;
-  
+
   // Property Analysis operations
   getPropertyAnalysesByUser(userId: string): Promise<PropertyAnalysis[]>;
   createPropertyAnalysis(userId: string, data: InsertPropertyAnalysis): Promise<PropertyAnalysis>;
   getPropertyAnalysisById(id: string): Promise<PropertyAnalysis | undefined>;
-  
+  clearUserSessionData(userId: string): Promise<void>;
+
   // Task operations
   getAllTasks(): Promise<Task[]>;
   getTasksByUser(userId: string): Promise<Task[]>;
   createTask(userId: string, data: InsertTask): Promise<Task>;
   updateTaskStatus(id: string, status: string): Promise<Task | undefined>;
-  
+
   // Compliance operations
   getAllComplianceItems(): Promise<ComplianceItem[]>;
   getComplianceItemsByProperty(propertyId: string): Promise<ComplianceItem[]>;
@@ -86,6 +87,12 @@ export class DatabaseStorage implements IStorage {
       .from(propertyAnalyses)
       .where(eq(propertyAnalyses.id, id));
     return analysis;
+  }
+
+  async clearUserSessionData(userId: string): Promise<void> {
+    await db
+      .delete(propertyAnalyses)
+      .where(eq(propertyAnalyses.userId, userId));
   }
 
   // Task operations

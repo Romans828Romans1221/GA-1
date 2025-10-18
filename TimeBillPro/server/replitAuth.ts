@@ -116,7 +116,15 @@ export async function setupAuth(app: Express) {
     })(req, res, next);
   });
 
-  app.get("/api/logout", (req, res) => {
+  app.get("/api/logout", async (req, res) => {
+    const user = req.user as any;
+    if (user?.claims?.sub) {
+      try {
+        await storage.clearUserSessionData(user.claims.sub);
+      } catch (error) {
+        console.error("Error clearing session data:", error);
+      }
+    }
     req.logout(() => {
       res.redirect(
         client.buildEndSessionUrl(config, {
