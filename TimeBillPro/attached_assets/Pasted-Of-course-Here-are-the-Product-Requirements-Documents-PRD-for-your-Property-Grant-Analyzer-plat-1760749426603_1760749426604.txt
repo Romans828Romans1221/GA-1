@@ -1,0 +1,119 @@
+Of course. Here are the Product Requirements Documents (PRD) for your Property (Grant) Analyzer platform, structured to be clear and actionable for both human and AI model comprehension.
+
+---
+
+### **Product Requirements Document: Property Grant Analyzer**
+
+**Version:** 1.0
+**Date:** October 26, 2023
+**Author:** [Your Name/Team]
+**Status:** Draft
+
+---
+
+### 1. Overview & Vision
+
+**Product Name:** Property Grant Analyzer (Flood Focus)
+
+**Vision Statement:** To create a centralized, intuitive platform that streamlines the initial assessment and management of property-related grants, specifically for flood mitigation and recovery, by providing critical property data and collaborative tools.
+
+**Problem Statement:** Analyzing properties for grant eligibility is a time-consuming, manual process involving data gathering from multiple disparate sources (e.g., FEMA maps, county assessors, census data). Teams lack a single source of truth and a streamlined way to collaborate on grant applications, leading to inefficiencies and potential errors.
+
+**Target Users:** Grant Analysts, Environmental Planners, Engineers, Consultants, and Project Managers working in public agencies or private firms on flood-related grants.
+
+---
+
+### 2. User Stories & Core Features
+
+The product is broken down into three main modules, accessible after login.
+
+#### **Epic 1: User Authentication & Home Dashboard**
+
+**User Story:**
+*   As a **User**, I want to securely log into the platform so that I can access my personalized workspace.
+
+**Acceptance Criteria (AC):**
+*   AC1: A login form is present on the home page.
+*   AC2: Users can authenticate with a username and password.
+*   AC3: Upon successful login, the user is redirected to the main dashboard.
+*   AC4: The dashboard displays three primary navigation buttons: **Compliance**, **Technical Service Page**, and **Queue Management**.
+
+---
+
+#### **Epic 2: Technical Service Page (Property Analyzer Core)**
+
+**User Story:**
+*   As a **Grant Analyst**, I want to input a property address or coordinates and instantly receive a standardized report of key metrics so that I can quickly assess its baseline eligibility and characteristics for flood-related grants.
+
+**Acceptance Criteria (AC):**
+*   AC1: The page contains a clear input form for **Property Address** and/or **Geographic Coordinates**.
+*   AC2: The user can submit one property at a time for analysis.
+*   AC3: The system generates and displays a report with the following data points:
+    *   Ground Elevation
+    *   Estimated Home Price / Assessed Value
+    *   Property Square Footage
+    *   FEMA Flood Zone Designation
+    *   Base Flood Elevation (BFE)
+    *   US Census Data (e.g., population of the area)
+*   AC4: The user can submit multiple properties sequentially. Each property analysis is saved to a temporary session list on this page.
+*   AC5: The user can click on any previously analyzed property from the session list to view the generated report again.
+*   AC6: All user session data (submitted properties and their reports) is cleared upon user logout.
+
+---
+
+#### **Epic 3: Compliance Module**
+
+**User Story:**
+*   As a **Compliance Officer**, I need a dedicated section to conduct and document Environmental Health and Safety (EHP) pre-screens and regulatory reviews so that we can track compliance checks early in the grant analysis process.
+
+**Acceptance Criteria (AC):**
+*   AC1: The Compliance page is accessible from the main dashboard.
+*   AC2: The page is structured to facilitate EHP pre-screening tasks.
+*   AC3: The page provides a framework for regulatory review.
+*   *(Note: Initial version can be a placeholder with a basic structure, to be developed in detail after user research with compliance teams).*
+
+---
+
+#### **Epic 4: Queue Management (Collaboration Portal)**
+
+**User Story:**
+*   As a **Project Manager**, I want a shared space where my team members can see assigned tasks, track project status, and collaborate on forms so that we can manage the end-to-end grant analysis workflow efficiently.
+
+**Acceptance Criteria (AC):**
+*   AC1: The Queue Management page is accessible from the main dashboard.
+*   AC2: The page provides a view of projects/properties that are being analyzed.
+*   AC3: Users can be assigned to tasks (e.g., "Complete EHP review for 123 Main St").
+*   AC4: Provides basic project management functionality (e.g., To-Do, In Progress, Done statuses).
+*   AC5: Allows stakeholders (Engineers, Consultants, etc.) to access and contribute to the platform.
+*   *(Note: The initial version should be simple, focusing on task assignment and status tracking. Complexity can be added over time).*
+
+---
+
+### 3. Non-Functional Requirements (NFRs)
+
+*   **Security:** User authentication must be secure. Session data must be properly isolated and cleared upon logout as specified.
+*   **Usability:** The interface must be intuitive and require minimal training. The three-button dashboard is the primary navigation scheme.
+*   **Performance:** Property analysis reports should generate within a reasonable time frame (< 30 seconds) to maintain user flow.
+*   **Data Integrity:** Data displayed in reports (e.g., Flood Zone, BFE) must be sourced from reliable, up-to-date APIs or databases.
+
+---
+
+### 4. Future Considerations & Out-of-Scope Items
+
+**Out-of-Scope for MVP (Minimum Viable Product):**
+*   Persistent saving of property reports across sessions.
+*   Advanced data visualization (e.g., maps, charts).
+*   Automated grant eligibility scoring.
+*   Complex workflow automations in the Queue Management module.
+*   Integration with external grant management systems.
+
+**Future Enhancements:**
+*   Interactive map for property selection.
+*   PDF export of property reports.
+*   Advanced user roles and permissions (Admin, Viewer, etc.).
+*   Notification system within the Queue Management module.
+*   API integrations with county assessor and FEMA databases for fully automated data pull.
+
+---
+
+This PRD provides a clear, structured blueprint for your Property Grant Analyzer. It defines the "what" and "why," leaving the technical "how" for the development team to architect.
